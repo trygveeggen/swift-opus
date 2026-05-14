@@ -37,6 +37,11 @@ let package = Package(
 				"celt/x86",
 				"ChangeLog",
 				"cmake",
+				// libopus 1.5+ neural-net features (DRED / LACE / NoLACE / Deep PLC / OSCE).
+				// Excluded unconditionally; upstream meson defaults all three feature options to
+				// 'disabled', and every dnn header pull from src/silk/celt is #ifdef-gated on
+				// ENABLE_DEEP_PLC / ENABLE_DRED / ENABLE_OSCE — none of which we define below.
+				"dnn",
 				"CMakeLists.txt",
 				"configure.ac",
 				"COPYING",
@@ -66,6 +71,7 @@ let package = Package(
 				"silk_sources.mk",
 				"silk/arm",
 				"silk/fixed",
+				"silk/float/x86",
 				"silk/meson.build",
 				"silk/mips",
 				"silk/tests",
